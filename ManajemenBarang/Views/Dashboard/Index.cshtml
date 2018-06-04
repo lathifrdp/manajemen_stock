@@ -2,8 +2,13 @@
 @{
     ViewBag.Title = "Index";
 }
+<center>
+    <h2>Aplikasi Manajemen Barang</h2>
+    <h4>Anda sudah punya akun?</h4> <div>@Html.ActionLink("Silahkan Login", "Login")</div>
+    <h4>Belum punya akun?</h4> <div>@Html.ActionLink("Silahkan Register", "Register")</div>
+</center>
 
-<h2>Index Dashboard</h2>
+<h4>Dibawah ini jangan diklik dulu</h4>
 <div>
     @Html.RouteLink("Ke Admin", "Admin_default",
     new { action = "Index", controller = "Adminsite" })

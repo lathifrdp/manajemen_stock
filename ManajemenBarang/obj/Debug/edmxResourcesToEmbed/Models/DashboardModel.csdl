@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Barang">
+    <Key>
+      <PropertyRef Name="id_barang" />
+    </Key>
+    <Property Name="id_barang" Type="Int32" Nullable="false" />
+    <Property Name="id_supplier" Type="Int32" Nullable="false" />
+    <Property Name="id_kategori" Type="Int32" Nullable="false" />
+    <Property Name="nama_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kode_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="jumlah_barang" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BarangKeluar">
+    <Key>
+      <PropertyRef Name="id_barang_keluar" />
+    </Key>
+    <Property Name="id_barang_keluar" Type="Int32" Nullable="false" />
+    <Property Name="id_barang" Type="Int32" Nullable="false" />
+    <Property Name="tanggal_keluar" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="jum_barang_keluar" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_by" Type="Int32" Nullable="false" />
+    <Property Name="updated_by" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BarangMasuk">
+    <Key>
+      <PropertyRef Name="id_barang_masuk" />
+    </Key>
+    <Property Name="id_barang_masuk" Type="Int32" Nullable="false" />
+    <Property Name="id_barang" Type="Int32" Nullable="false" />
+    <Property Name="tanggal_masuk" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="jum_barang_masuk" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_by" Type="Int32" Nullable="false" />
+    <Property Name="updated_by" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BarangReturn">
+    <Key>
+      <PropertyRef Name="id_barang_return" />
+    </Key>
+    <Property Name="id_barang_return" Type="Int32" Nullable="false" />
+    <Property Name="id_barang" Type="Int32" Nullable="false" />
+    <Property Name="tanggal_return" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="jum_barang_return" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_by" Type="Int32" Nullable="false" />
+    <Property Name="updated_by" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="id_kategori" />
+    </Key>
+    <Property Name="id_kategori" Type="Int32" Nullable="false" />
+    <Property Name="nama_kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="id_supplier" />
+    </Key>
+    <Property Name="id_supplier" Type="Int32" Nullable="false" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="nama_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="alamat_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telp_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbUser">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status_user" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="dbStokEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Barangs" EntityType="Self.Barang" />
+    <EntitySet Name="BarangKeluars" EntityType="Self.BarangKeluar" />
+    <EntitySet Name="BarangMasuks" EntityType="Self.BarangMasuk" />
+    <EntitySet Name="BarangReturns" EntityType="Self.BarangReturn" />
+    <EntitySet Name="Kategoris" EntityType="Self.Kategori" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
+    <FunctionImport Name="AddUser">
+      <Parameter Name="id_user" Mode="In" Type="Int32" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="status_user" Mode="In" Type="Int32" />
+      <Parameter Name="nama_supplier" Mode="In" Type="String" />
+      <Parameter Name="alamat_supplier" Mode="In" Type="String" />
+      <Parameter Name="telp_supplier" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddSupplier">
+      <Parameter Name="id_user" Mode="In" Type="Int32" />
+      <Parameter Name="nama_supplier" Mode="In" Type="String" />
+      <Parameter Name="alamat_supplier" Mode="In" Type="String" />
+      <Parameter Name="telp_supplier" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsup" ReturnType="Collection(dbStokModel.GetUsup_Result)" />
+  </EntityContainer>
+  <ComplexType Name="GetUsup_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="status_user" Nullable="true" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="Int32" Name="ID_User1" Nullable="true" />
+    <Property Type="String" Name="nama_supplier" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="alamat_supplier" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="telp_supplier" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

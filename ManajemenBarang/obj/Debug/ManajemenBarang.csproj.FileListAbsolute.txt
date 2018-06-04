@@ -91,3 +91,7 @@ C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\obj\Debug\Manaje
 C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\obj\Debug\ManajemenBarang.csproj.CopyComplete
 C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\obj\Debug\ManajemenBarang.dll
 C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\obj\Debug\ManajemenBarang.pdb
+C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\bin\EntityFramework.dll
+C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\bin\EntityFramework.SqlServer.dll
+C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\bin\EntityFramework.xml
+C:\Users\Lathifrdp\source\repos\ManajemenBarang\ManajemenBarang\bin\EntityFramework.SqlServer.xml

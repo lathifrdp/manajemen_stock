@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbStokModelStoreContainer" CdmEntityContainer="dbStokEntities">
+    <EntitySetMapping Name="Barangs">
+      <EntityTypeMapping TypeName="dbStokModel.Barang">
+        <MappingFragment StoreEntitySet="Barang">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BarangKeluars">
+      <EntityTypeMapping TypeName="dbStokModel.BarangKeluar">
+        <MappingFragment StoreEntitySet="BarangKeluar">
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BarangMasuks">
+      <EntityTypeMapping TypeName="dbStokModel.BarangMasuk">
+        <MappingFragment StoreEntitySet="BarangMasuk">
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BarangReturns">
+      <EntityTypeMapping TypeName="dbStokModel.BarangReturn">
+        <MappingFragment StoreEntitySet="BarangReturn">
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoris">
+      <EntityTypeMapping TypeName="dbStokModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="dbStokModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+          <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
+          <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUsers">
+      <EntityTypeMapping TypeName="dbStokModel.tbUser">
+        <MappingFragment StoreEntitySet="tbUser">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status_user" ColumnName="status_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="dbStokModel.Store.AddUser" />
+    <FunctionImportMapping FunctionImportName="AddSupplier" FunctionName="dbStokModel.Store.AddSupplier" />
+    <FunctionImportMapping FunctionImportName="GetUsup" FunctionName="dbStokModel.Store.GetUsup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetUsup_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="status_user" ColumnName="status_user" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="ID_User1" ColumnName="ID_User1" />
+          <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+          <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
+          <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

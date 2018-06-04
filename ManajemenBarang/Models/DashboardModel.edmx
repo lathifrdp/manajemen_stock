@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbStokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="id_barang" />
+          </Key>
+          <Property Name="id_barang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_supplier" Type="int" Nullable="false" />
+          <Property Name="id_kategori" Type="int" Nullable="false" />
+          <Property Name="nama_barang" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kode_barang" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="jumlah_barang" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangKeluar">
+          <Key>
+            <PropertyRef Name="id_barang_keluar" />
+          </Key>
+          <Property Name="id_barang_keluar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_barang" Type="int" Nullable="false" />
+          <Property Name="tanggal_keluar" Type="date" Nullable="false" />
+          <Property Name="jum_barang_keluar" Type="int" Nullable="false" />
+          <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="updated_by" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangMasuk">
+          <Key>
+            <PropertyRef Name="id_barang_masuk" />
+          </Key>
+          <Property Name="id_barang_masuk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_barang" Type="int" Nullable="false" />
+          <Property Name="tanggal_masuk" Type="date" Nullable="false" />
+          <Property Name="jum_barang_masuk" Type="int" Nullable="false" />
+          <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="updated_by" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangReturn">
+          <Key>
+            <PropertyRef Name="id_barang_return" />
+          </Key>
+          <Property Name="id_barang_return" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_barang" Type="int" Nullable="false" />
+          <Property Name="tanggal_return" Type="date" Nullable="false" />
+          <Property Name="jum_barang_return" Type="int" Nullable="false" />
+          <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="updated_by" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="id_kategori" />
+          </Key>
+          <Property Name="id_kategori" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_kategori" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="deskripsi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id_supplier" />
+          </Key>
+          <Property Name="id_supplier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="nama_supplier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="alamat_supplier" Type="nvarchar" MaxLength="50" />
+          <Property Name="telp_supplier" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="status_user" Type="int" />
+        </EntityType>
+        <Function Name="AddSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="nama_supplier" Type="varchar" Mode="In" />
+          <Parameter Name="alamat_supplier" Type="varchar" Mode="In" />
+          <Parameter Name="telp_supplier" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="status_user" Type="int" Mode="In" />
+          <Parameter Name="nama_supplier" Type="varchar" Mode="In" />
+          <Parameter Name="alamat_supplier" Type="varchar" Mode="In" />
+          <Parameter Name="telp_supplier" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetUsup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dbStokModelStoreContainer">
+          <EntitySet Name="Barang" EntityType="Self.Barang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BarangKeluar" EntityType="Self.BarangKeluar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BarangMasuk" EntityType="Self.BarangMasuk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BarangReturn" EntityType="Self.BarangReturn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUser" EntityType="Self.tbUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbStokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="id_barang" />
+          </Key>
+          <Property Name="id_barang" Type="Int32" Nullable="false" />
+          <Property Name="id_supplier" Type="Int32" Nullable="false" />
+          <Property Name="id_kategori" Type="Int32" Nullable="false" />
+          <Property Name="nama_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kode_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="jumlah_barang" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangKeluar">
+          <Key>
+            <PropertyRef Name="id_barang_keluar" />
+          </Key>
+          <Property Name="id_barang_keluar" Type="Int32" Nullable="false" />
+          <Property Name="id_barang" Type="Int32" Nullable="false" />
+          <Property Name="tanggal_keluar" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="jum_barang_keluar" Type="Int32" Nullable="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="updated_by" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangMasuk">
+          <Key>
+            <PropertyRef Name="id_barang_masuk" />
+          </Key>
+          <Property Name="id_barang_masuk" Type="Int32" Nullable="false" />
+          <Property Name="id_barang" Type="Int32" Nullable="false" />
+          <Property Name="tanggal_masuk" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="jum_barang_masuk" Type="Int32" Nullable="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="updated_by" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BarangReturn">
+          <Key>
+            <PropertyRef Name="id_barang_return" />
+          </Key>
+          <Property Name="id_barang_return" Type="Int32" Nullable="false" />
+          <Property Name="id_barang" Type="Int32" Nullable="false" />
+          <Property Name="tanggal_return" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="jum_barang_return" Type="Int32" Nullable="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="updated_by" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="id_kategori" />
+          </Key>
+          <Property Name="id_kategori" Type="Int32" Nullable="false" />
+          <Property Name="nama_kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id_supplier" />
+          </Key>
+          <Property Name="id_supplier" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="nama_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="alamat_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telp_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbUser">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status_user" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="dbStokEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Barangs" EntityType="Self.Barang" />
+          <EntitySet Name="BarangKeluars" EntityType="Self.BarangKeluar" />
+          <EntitySet Name="BarangMasuks" EntityType="Self.BarangMasuk" />
+          <EntitySet Name="BarangReturns" EntityType="Self.BarangReturn" />
+          <EntitySet Name="Kategoris" EntityType="Self.Kategori" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="tbUsers" EntityType="Self.tbUser" />
+          <FunctionImport Name="AddUser">
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="status_user" Mode="In" Type="Int32" />
+            <Parameter Name="nama_supplier" Mode="In" Type="String" />
+            <Parameter Name="alamat_supplier" Mode="In" Type="String" />
+            <Parameter Name="telp_supplier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddSupplier">
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="nama_supplier" Mode="In" Type="String" />
+            <Parameter Name="alamat_supplier" Mode="In" Type="String" />
+            <Parameter Name="telp_supplier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUsup" ReturnType="Collection(dbStokModel.GetUsup_Result)" />
+        </EntityContainer>
+        <ComplexType Name="GetUsup_Result">
+          <Property Type="Int32" Name="id_user" Nullable="false" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="status_user" Nullable="true" />
+          <Property Type="Int32" Name="id_supplier" Nullable="true" />
+          <Property Type="Int32" Name="ID_User1" Nullable="true" />
+          <Property Type="String" Name="nama_supplier" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="alamat_supplier" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="telp_supplier" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbStokModelStoreContainer" CdmEntityContainer="dbStokEntities">
+          <EntitySetMapping Name="Barangs">
+            <EntityTypeMapping TypeName="dbStokModel.Barang">
+              <MappingFragment StoreEntitySet="Barang">
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+                <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+                <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+                <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BarangKeluars">
+            <EntityTypeMapping TypeName="dbStokModel.BarangKeluar">
+              <MappingFragment StoreEntitySet="BarangKeluar">
+                <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+                <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BarangMasuks">
+            <EntityTypeMapping TypeName="dbStokModel.BarangMasuk">
+              <MappingFragment StoreEntitySet="BarangMasuk">
+                <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+                <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BarangReturns">
+            <EntityTypeMapping TypeName="dbStokModel.BarangReturn">
+              <MappingFragment StoreEntitySet="BarangReturn">
+                <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+                <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoris">
+            <EntityTypeMapping TypeName="dbStokModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+                <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="dbStokModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+                <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
+                <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsers">
+            <EntityTypeMapping TypeName="dbStokModel.tbUser">
+              <MappingFragment StoreEntitySet="tbUser">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status_user" ColumnName="status_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddUser" FunctionName="dbStokModel.Store.AddUser" />
+          <FunctionImportMapping FunctionImportName="AddSupplier" FunctionName="dbStokModel.Store.AddSupplier" />
+          <FunctionImportMapping FunctionImportName="GetUsup" FunctionName="dbStokModel.Store.GetUsup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbStokModel.GetUsup_Result">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="status_user" ColumnName="status_user" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="ID_User1" ColumnName="ID_User1" />
+                <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+                <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
+                <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
