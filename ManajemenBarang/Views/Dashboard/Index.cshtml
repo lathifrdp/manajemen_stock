@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Dashboard</h2>
+<div>
+    @Html.RouteLink("Ke Admin", "Admin_default",
+    new { action = "Index", controller = "Adminsite" })
+
+</div>
+<div>
+    @Html.RouteLink("Ke Supplier", "Supplier_default",
+    new { action = "Index", controller = "Suppliersite" })
+</div>
+
