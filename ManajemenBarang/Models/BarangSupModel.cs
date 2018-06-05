@@ -5,12 +5,12 @@ using System.Web;
 
 namespace ManajemenBarang.Models
 {
-    public class RegModel
+    public class BarangSupModel
     {
         dbStokEntities dbe = new dbStokEntities();
-        public List<GetUsup2_Result> GetUsers()
+        public List<GetBarangSup_Result> GetBarangSup_Results(int id_supplier)
         {
-            return dbe.GetUsup2().ToList<GetUsup2_Result>();
+            return dbe.GetBarangSup(id_supplier).ToList<GetBarangSup_Result>();
         }
     }
 }

@@ -1,7 +1,14 @@
-﻿
+﻿@model ManajemenBarang.Models.GetUsup2_Result
 @{
     ViewBag.Title = "Login";
 }
+<style>
+    .my-style {
+        outline: none;
+        border: none;
+        padding-left: 75px;
+    }
+</style>
 <title>Form Login</title>
 <center>
     <h2>Login</h2>
@@ -12,18 +19,42 @@
 
             <form method="post" action="@Url.Action("LoginData", "Dashboard")">
                 <div class="col-md-12">
+                    
+                    <table>
+                          <tr>
+                              <td>@Html.LabelFor(a => a.username)</td>
+                              <td>@Html.TextBoxFor(a => a.username)</td>
+                          </tr>
 
-                    <div class="form-group">
-                        <label class="control-label">Username (email)</label>
-                        <input name="username" type="email" class="form-control" required autocomplete="off" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Password</label>
-                        <input name="password" type="password" class="form-control" required autocomplete="off" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Login" class="btn btn-default" />
-                    </div>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(a => a.password)
+                            </td>
+                            <td>
+                                @Html.PasswordFor(a => a.password)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Login" />
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    <!--<div class="form-group">
+          <label class="control-label">Username (email)</label>
+          <input name="username" type="email" class="form-control" required autocomplete="off" />
+      </div>
+      <div class="form-group">
+          <label class="control-label">Password</label>
+          <input name="password" type="password" class="form-control" required autocomplete="off" />
+      </div>
+      <div class="form-group">
+          <input type="submit" value="Login" class="btn btn-default" />
+      </div>-->
+
                     <div>
                         @Html.ActionLink("Kembali ke Awal", "Index")
                     </div>

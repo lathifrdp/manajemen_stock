@@ -1,12 +1,63 @@
-﻿
+﻿@model IEnumerable<ManajemenBarang.Models.GetBarangWhere2_Result>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index Supplier</h2>
-<div>
-    @Html.RouteLink("Kembali ke Dashboard", "Default",
-    new { action = "Index", controller = "Dashboard" })
+@if (Session["SupID"] != null) { <text> Selamat Datang @Session["SupName"].ToString() </text> }
+<p>
+    @Html.ActionLink("Tambah Data", "Insert")
+</p>  
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nama Barang
+            </th>
+            <th>
+                Kategori
+            </th>
+            <th>
+                Jumlah Barang
+            </th>
+            <th>
+                Tanggal Masuk
+            </th>
+            <th>
+                Dibuat Oleh
+            </th>
 
-</div>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nama_barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nama_kategori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jumlah_barang)
+            </td>
+            <td>
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.tanggal_masuk))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_masuk)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+    <div>
+        @Html.RouteLink("Kembali ke Dashboard", "Default",
+        new { action = "Index", controller = "Dashboard" })
+    </div>
+
 

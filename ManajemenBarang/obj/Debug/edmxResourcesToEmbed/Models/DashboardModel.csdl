@@ -5,7 +5,7 @@
       <PropertyRef Name="id_barang" />
     </Key>
     <Property Name="id_barang" Type="Int32" Nullable="false" />
-    <Property Name="id_supplier" Type="Int32" Nullable="false" />
+    <Property Name="id_supplier" Type="Int32" />
     <Property Name="id_kategori" Type="Int32" Nullable="false" />
     <Property Name="nama_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="kode_barang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -19,9 +19,9 @@
     <Property Name="id_barang" Type="Int32" Nullable="false" />
     <Property Name="tanggal_keluar" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="jum_barang_keluar" Type="Int32" Nullable="false" />
-    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="created_by" Type="Int32" Nullable="false" />
-    <Property Name="updated_by" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="updated_by" Type="Int32" />
   </EntityType>
   <EntityType Name="BarangMasuk">
     <Key>
@@ -31,9 +31,9 @@
     <Property Name="id_barang" Type="Int32" Nullable="false" />
     <Property Name="tanggal_masuk" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="jum_barang_masuk" Type="Int32" Nullable="false" />
-    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="created_by" Type="Int32" Nullable="false" />
-    <Property Name="updated_by" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="updated_by" Type="Int32" />
   </EntityType>
   <EntityType Name="BarangReturn">
     <Key>
@@ -43,9 +43,9 @@
     <Property Name="id_barang" Type="Int32" Nullable="false" />
     <Property Name="tanggal_return" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="jum_barang_return" Type="Int32" Nullable="false" />
-    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="created_by" Type="Int32" Nullable="false" />
-    <Property Name="updated_by" Type="Int32" Nullable="false" />
+    <Property Name="deskripsi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="updated_by" Type="Int32" />
   </EntityType>
   <EntityType Name="Kategori">
     <Key>
@@ -98,6 +98,38 @@
       <Parameter Name="telp_supplier" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="GetUsup" ReturnType="Collection(dbStokModel.GetUsup_Result)" />
+    <FunctionImport Name="LoginUser" ReturnType="Collection(dbStokModel.LoginUser_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsup2" ReturnType="Collection(dbStokModel.GetUsup2_Result)" />
+    <FunctionImport Name="GetBarangSup" ReturnType="Collection(dbStokModel.GetBarangSup_Result)">
+      <Parameter Name="id_supplier" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBarangSup2" ReturnType="Collection(dbStokModel.GetBarangSup2_Result)" />
+    <FunctionImport Name="GetKategori" ReturnType="Collection(dbStokModel.GetKategori_Result)" />
+    <FunctionImport Name="CreateData">
+      <Parameter Name="id_kategori" Mode="In" Type="Int32" />
+      <Parameter Name="id_supplier" Mode="In" Type="Int32" />
+      <Parameter Name="kode_barang" Mode="In" Type="String" />
+      <Parameter Name="nama_barang" Mode="In" Type="String" />
+      <Parameter Name="id_barang" Mode="In" Type="Int32" />
+      <Parameter Name="jumlah_barang" Mode="In" Type="Int32" />
+      <Parameter Name="tanggal_masuk" Mode="In" Type="DateTime" />
+      <Parameter Name="jum_barang_masuk" Mode="In" Type="Int32" />
+      <Parameter Name="created_by" Mode="In" Type="Int32" />
+      <Parameter Name="deskripsi" Mode="In" Type="String" />
+      <Parameter Name="updated_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBarangSup3" ReturnType="Collection(dbStokModel.GetBarangSup3_Result)" />
+    <FunctionImport Name="GetBarangSup4" ReturnType="Collection(dbStokModel.GetBarangSup4_Result)" />
+    <FunctionImport Name="GetSupplay" ReturnType="Collection(dbStokModel.GetSupplay_Result)" />
+    <FunctionImport Name="GetBarangWhere" ReturnType="Collection(dbStokModel.GetBarangWhere_Result)">
+      <Parameter Name="id_supplier" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBarangWhere2" ReturnType="Collection(dbStokModel.GetBarangWhere2_Result)">
+      <Parameter Name="id_supplier" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetUsup_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />
@@ -109,5 +141,207 @@
     <Property Type="String" Name="nama_supplier" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="alamat_supplier" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="telp_supplier" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="LoginUser_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetUsup2_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="status_user" Nullable="true" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="Int32" Name="id_pengguna" Nullable="true" />
+    <Property Type="String" Name="nama_supplier" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="alamat_supplier" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="telp_supplier" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetBarangSup_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="false" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBarangSup2_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="false" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetKategori_Result">
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="String" Name="nama_kategori" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetBarangSup3_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBarangSup4_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="updated_return" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetSupplay_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="updated_return" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBarangWhere_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="updated_return" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBarangWhere2_Result">
+    <Property Type="Int32" Name="id_barang" Nullable="false" />
+    <Property Type="Int32" Name="id_kategori" Nullable="false" />
+    <Property Type="Int32" Name="id_supplier" Nullable="true" />
+    <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+    <Property Type="Int32" Name="kategori_id" Nullable="true" />
+    <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+    <Property Type="Int32" Name="created_masuk" Nullable="true" />
+    <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+    <Property Type="Int32" Name="created_keluar" Nullable="true" />
+    <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+    <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+    <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+    <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+    <Property Type="Int32" Name="created_return" Nullable="true" />
+    <Property Type="Int32" Name="updated_return" Nullable="true" />
   </ComplexType>
 </Schema>

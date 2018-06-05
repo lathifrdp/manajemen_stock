@@ -5,7 +5,7 @@
       <PropertyRef Name="id_barang" />
     </Key>
     <Property Name="id_barang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_supplier" Type="int" Nullable="false" />
+    <Property Name="id_supplier" Type="int" />
     <Property Name="id_kategori" Type="int" Nullable="false" />
     <Property Name="nama_barang" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="kode_barang" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -19,9 +19,9 @@
     <Property Name="id_barang" Type="int" Nullable="false" />
     <Property Name="tanggal_keluar" Type="date" Nullable="false" />
     <Property Name="jum_barang_keluar" Type="int" Nullable="false" />
-    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="created_by" Type="int" Nullable="false" />
-    <Property Name="updated_by" Type="int" Nullable="false" />
+    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" />
+    <Property Name="created_by" Type="int" />
+    <Property Name="updated_by" Type="int" />
   </EntityType>
   <EntityType Name="BarangMasuk">
     <Key>
@@ -31,9 +31,9 @@
     <Property Name="id_barang" Type="int" Nullable="false" />
     <Property Name="tanggal_masuk" Type="date" Nullable="false" />
     <Property Name="jum_barang_masuk" Type="int" Nullable="false" />
-    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="created_by" Type="int" Nullable="false" />
-    <Property Name="updated_by" Type="int" Nullable="false" />
+    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" />
+    <Property Name="created_by" Type="int" />
+    <Property Name="updated_by" Type="int" />
   </EntityType>
   <EntityType Name="BarangReturn">
     <Key>
@@ -43,9 +43,9 @@
     <Property Name="id_barang" Type="int" Nullable="false" />
     <Property Name="tanggal_return" Type="date" Nullable="false" />
     <Property Name="jum_barang_return" Type="int" Nullable="false" />
-    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="created_by" Type="int" Nullable="false" />
-    <Property Name="updated_by" Type="int" Nullable="false" />
+    <Property Name="deskripsi" Type="nvarchar" MaxLength="50" />
+    <Property Name="created_by" Type="int" />
+    <Property Name="updated_by" Type="int" />
   </EntityType>
   <EntityType Name="Kategori">
     <Key>
@@ -89,7 +89,39 @@
     <Parameter Name="alamat_supplier" Type="varchar" Mode="In" />
     <Parameter Name="telp_supplier" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="CreateData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_kategori" Type="int" Mode="In" />
+    <Parameter Name="id_supplier" Type="int" Mode="In" />
+    <Parameter Name="kode_barang" Type="varchar" Mode="In" />
+    <Parameter Name="nama_barang" Type="varchar" Mode="In" />
+    <Parameter Name="id_barang" Type="int" Mode="In" />
+    <Parameter Name="jumlah_barang" Type="int" Mode="In" />
+    <Parameter Name="tanggal_masuk" Type="date" Mode="In" />
+    <Parameter Name="jum_barang_masuk" Type="int" Mode="In" />
+    <Parameter Name="created_by" Type="int" Mode="In" />
+    <Parameter Name="deskripsi" Type="varchar" Mode="In" />
+    <Parameter Name="updated_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBarangSup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBarangSup2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetBarangSup3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetBarangSup4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetBarangWhere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBarangWhere2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetKategori" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetSupplay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetUsup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUsup2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="dbStokModelStoreContainer">
     <EntitySet Name="Barang" EntityType="Self.Barang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BarangKeluar" EntityType="Self.BarangKeluar" Schema="dbo" store:Type="Tables" />

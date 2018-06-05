@@ -99,5 +99,248 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LoginUser" FunctionName="dbStokModel.Store.LoginUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.LoginUser_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUsup2" FunctionName="dbStokModel.Store.GetUsup2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetUsup2_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="status_user" ColumnName="status_user" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="id_pengguna" ColumnName="id_pengguna" />
+          <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+          <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
+          <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBarangSup" FunctionName="dbStokModel.Store.GetBarangSup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangSup_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="created_return1" ColumnName="created_return1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBarangSup2" FunctionName="dbStokModel.Store.GetBarangSup2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangSup2_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="created_return1" ColumnName="created_return1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetKategori" FunctionName="dbStokModel.Store.GetKategori">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetKategori_Result">
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CreateData" FunctionName="dbStokModel.Store.CreateData" />
+    <FunctionImportMapping FunctionImportName="GetBarangSup3" FunctionName="dbStokModel.Store.GetBarangSup3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangSup3_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="created_return1" ColumnName="created_return1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBarangSup4" FunctionName="dbStokModel.Store.GetBarangSup4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangSup4_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="updated_return" ColumnName="updated_return" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSupplay" FunctionName="dbStokModel.Store.GetSupplay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetSupplay_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="updated_return" ColumnName="updated_return" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBarangWhere" FunctionName="dbStokModel.Store.GetBarangWhere">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangWhere_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="updated_return" ColumnName="updated_return" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBarangWhere2" FunctionName="dbStokModel.Store.GetBarangWhere2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStokModel.GetBarangWhere2_Result">
+          <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+          <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+          <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+          <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+          <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+          <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+          <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+          <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+          <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+          <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+          <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+          <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+          <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+          <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+          <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+          <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+          <ScalarProperty Name="created_return" ColumnName="created_return" />
+          <ScalarProperty Name="updated_return" ColumnName="updated_return" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

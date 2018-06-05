@@ -15,7 +15,7 @@ namespace ManajemenBarang.Models
     public partial class Barang
     {
         public int id_barang { get; set; }
-        public int id_supplier { get; set; }
+        public Nullable<int> id_supplier { get; set; }
         public int id_kategori { get; set; }
         public string nama_barang { get; set; }
         public string kode_barang { get; set; }

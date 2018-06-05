@@ -159,6 +159,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminsiteController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SuppliersiteController.cs" />
+    <Compile Include="Areas\Supplier\Models\BarangWhere.cs" />
+    <Compile Include="Areas\Supplier\Models\InBarang.cs" />
+    <Compile Include="Areas\Supplier\Models\SupBar.cs" />
+    <Compile Include="Areas\Supplier\Models\ViewModel.cs" />
     <Compile Include="Areas\Supplier\SupplierAreaRegistration.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -177,6 +181,7 @@
     <Compile Include="Models\BarangReturn.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BarangSupModel.cs" />
     <Compile Include="Models\DashboardModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,12 +197,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DashboardModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetBarangSup2_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBarangSup3_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBarangSup4_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBarangSup_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBarangWhere2_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetBarangWhere_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetKategori_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetSupplay_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetUsup2_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetUsup_Result.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kategori.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginUser_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\RegModel.cs" />
     <Compile Include="Models\Supplier.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
@@ -246,6 +282,8 @@
     <Content Include="Models\DashboardModel.edmx.diagram">
       <DependentUpon>DashboardModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Supplier\Views\Suppliersite\Create.cshtml" />
+    <Content Include="Areas\Supplier\Views\Suppliersite\InsertData.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -275,11 +313,12 @@
     <Content Include="Views\Dashboard\Register.cshtml" />
     <Content Include="Views\Dashboard\Login.cshtml" />
     <Content Include="Views\Dashboard\RegisterData.cshtml" />
+    <Content Include="Views\Dashboard\Error.cshtml" />
+    <Content Include="Views\Dashboard\ErrorLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Supplier\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

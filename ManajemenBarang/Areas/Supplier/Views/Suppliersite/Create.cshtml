@@ -1,0 +1,78 @@
+﻿@model ManajemenBarang.Areas.Supplier.Models.ViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Tambah Data Barang</h2>
+<div class="row">
+    <div class="col-md-12">
+
+        <form method="post" action="@Url.Action("InsertData", "Suppliersite")">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="control-label">Kode Barang</label>
+                    <input name="kode_barang" class="form-control" required autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nama Barang</label>
+                    <input name="nama_barang" class="form-control" required autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+
+                    <label class="control-label">Kategori</label>
+                    <select name="id_kategori" class="form-control" required>
+                        @*Iterating Agama ViewModel *@
+                        <option selected="selected" value="">--- Pilih Kategori ---</option>
+                        @foreach (var itemK in Model.allKategori)
+                        {
+                            <option value="@itemK.id_kategori">@itemK.nama_kategori</option>
+                        }
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Jumlah Barang</label>
+                    <input name="jumlah_barang" class="form-control" required autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Deskripsi</label>
+                    <input name="deskripsi" class="form-control" required autocomplete="off" />
+                    <input name="created_by" hidden="hidden" value="2" />
+                    <input name="updated_by" hidden="hidden" value="2" />
+                    <input name="id_supplier" hidden="hidden" value="@Session["SupID"]" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Insert Data" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Kembali ke Awal", "Index")
+</div>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+    function cekTahun(year) {
+        var current_year = new Date().getFullYear();
+        if (year > current_year) {
+            alert("Tidak boleh lebih dari tahun sekarang");
+            return false;
+        }
+        return true;
+    }
+</script>
+

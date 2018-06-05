@@ -5,12 +5,12 @@ using System.Web;
 
 namespace ManajemenBarang.Models
 {
-    public class RegModel
+    public class LogModel
     {
         dbStokEntities dbe = new dbStokEntities();
-        public List<GetUsup2_Result> GetUsers()
+        public List<LoginUser_Result> GetLoginUser_Results(string username, string password)
         {
-            return dbe.GetUsup2().ToList<GetUsup2_Result>();
+            return dbe.LoginUser(username,password).ToList<LoginUser_Result>();
         }
     }
 }

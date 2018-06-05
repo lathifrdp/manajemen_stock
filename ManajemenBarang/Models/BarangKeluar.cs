@@ -19,7 +19,7 @@ namespace ManajemenBarang.Models
         public System.DateTime tanggal_keluar { get; set; }
         public int jum_barang_keluar { get; set; }
         public string deskripsi { get; set; }
-        public int created_by { get; set; }
-        public int updated_by { get; set; }
+        public Nullable<int> created_by { get; set; }
+        public Nullable<int> updated_by { get; set; }
     }
 }
