@@ -23,7 +23,7 @@
                     <table>
                           <tr>
                               <td>@Html.LabelFor(a => a.username)</td>
-                              <td>@Html.TextBoxFor(a => a.username)</td>
+                              <td>@Html.TextBoxFor(a => a.username,new {required = "required", type = "email" })</td>
                           </tr>
 
                         <tr>
@@ -31,7 +31,7 @@
                                 @Html.LabelFor(a => a.password)
                             </td>
                             <td>
-                                @Html.PasswordFor(a => a.password)
+                                @Html.PasswordFor(a => a.password, new { required = "required" })
                             </td>
                         </tr>
                         <tr>
