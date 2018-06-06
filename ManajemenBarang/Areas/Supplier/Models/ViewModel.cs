@@ -9,5 +9,7 @@ namespace ManajemenBarang.Areas.Supplier.Models
     public class ViewModel
     {
         public List<GetKategori_Result> allKategori { get; set; }
+        public List<GetBarangWhere3_Result> allBar { get; set; }
+        public List<GetCreatedSupplier3_Result> allSup { get; set; }
     }
 }

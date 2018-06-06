@@ -1,13 +1,38 @@
-﻿@model IEnumerable<ManajemenBarang.Models.GetBarangWhere2_Result>
+﻿@model ManajemenBarang.Areas.Supplier.Models.ViewModel
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index Supplier</h2>
-@if (Session["SupID"] != null) { <text> Selamat Datang @Session["SupName"].ToString() </text> }
-<p>
+<h2>Supplier</h2>
+<!-- <p style="margin-left:20px;float:right;margin-right:20px;">
+    @Html.RouteLink("Logout", "Default", new { action = "Login", controller = "Dashboard" })
+</p> -->
+<p style="margin-left:20px;float:right;margin-right:20px;">
+    @Html.ActionLink("Logout", "Logout")
+</p>
+@if (Session["SupID"] != null)
+{<text> Selamat Datang @Session["SupName"].ToString() </text>}
+<!--<p>
     @Html.ActionLink("Tambah Data", "Insert")
-</p>  
+
+</p>-->
+<br />
+<br />
+<form style="float:right">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="btn-group">
+                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Tambah Data <div class="caret"></div></button>
+                <!-- dropdown menu items-->
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="@Url.Action("Insert","Suppliersite", new { Area = "Supplier" })"><span class="glyphicon glyphicon-plus"></span> Tambah Data Baru</a></li>
+                    <li><a href="@Url.Action("InsertExist","Suppliersite", new { Area = "Supplier" })"><span class="glyphicon glyphicon-pencil"></span> Tambah Data Existing</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -31,33 +56,37 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+
+        @foreach (var itemB in Model.allBar)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nama_barang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nama_kategori)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.jumlah_barang)
-            </td>
-            <td>
-                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.tanggal_masuk))
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.created_masuk)
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => itemB.nama_barang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => itemB.nama_kategori)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => itemB.jumlah_barang)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", itemB.tanggal_masuk))
+                </td>
+
+
+                <td>
+                    @foreach (var itemS in Model.allSup)
+                    {
+                        @Html.DisplayFor(modelItem => itemS.nama_supplier)
+                    }
+                </td>
+
+            </tr>
         }
     </tbody>
 </table>
 
 
-    <div>
-        @Html.RouteLink("Kembali ke Dashboard", "Default",
-        new { action = "Index", controller = "Dashboard" })
-    </div>
+
 
 

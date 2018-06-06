@@ -9,9 +9,9 @@ namespace ManajemenBarang.Areas.Supplier.Models
     public class BarangWhere
     {
         dbStokEntities dbe = new dbStokEntities();
-        public List<GetBarangWhere2_Result> GetBarangWhere2_Results(string id_supplier)
+        public List<GetBarangWhere3_Result> GetBarangWhere3_Results(string id_supplier)
         {
-            return dbe.GetBarangWhere2(id_supplier).ToList<GetBarangWhere2_Result>();
+            return dbe.GetBarangWhere3(id_supplier).ToList<GetBarangWhere3_Result>();
         }
     }
 }

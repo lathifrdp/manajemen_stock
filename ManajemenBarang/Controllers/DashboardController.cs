@@ -50,7 +50,9 @@ namespace ManajemenBarang.Controllers
                 using (dbStokEntities db = new dbStokEntities())
                 {
                     var obj = db.tbUsers.Where(a => a.username.Equals(objUser.username) && a.password.Equals(objUser.password)).FirstOrDefault();
+                    if (obj==null) { return View("ErrorLogin"); }
                     var supobj = db.Suppliers.Where(b => b.id_user.Equals(obj.id_user)).FirstOrDefault();
+                                        
                     if (obj != null && obj.status_user == 1)
                     {
                         Session["UserID"] = obj.id_user.ToString();
@@ -64,10 +66,12 @@ namespace ManajemenBarang.Controllers
                         Session["UserID"] = obj.id_user.ToString();
                         Session["UserName"] = obj.username.ToString();
                         return RedirectToAction("AdminDashBoard");
-                    }                    
+                    }
+                    
                 }
             }
-            return View("ErrorLogin",objUser);
+            
+            return View(objUser);
         }
         BarangSupModel bsm = new BarangSupModel();
         public ActionResult SupplierDashBoard()

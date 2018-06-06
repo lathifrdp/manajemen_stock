@@ -212,5 +212,46 @@ namespace ManajemenBarang.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBarangWhere2_Result>("GetBarangWhere2", id_supplierParameter);
         }
+    
+        public virtual ObjectResult<GetBarangWhere3_Result> GetBarangWhere3(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBarangWhere3_Result>("GetBarangWhere3", id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<string> GetCreatedSupplier()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetCreatedSupplier");
+        }
+    
+        public virtual ObjectResult<string> GetCreatedSupplier2(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetCreatedSupplier2", id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<GetCreatedSupplier3_Result> GetCreatedSupplier3(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCreatedSupplier3_Result>("GetCreatedSupplier3", id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<GetProfil_Result> GetProfil(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProfil_Result>("GetProfil", id_supplierParameter);
+        }
     }
 }

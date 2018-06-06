@@ -1,12 +1,27 @@
 ﻿@model ManajemenBarang.Models.GetUsup2_Result
 @{
     ViewBag.Title = "Login";
+    
 }
 <style>
     .my-style {
         outline: none;
         border: none;
         padding-left: 75px;
+    }
+
+    .lbl {
+        padding-right: 20px;
+    }
+
+    .jarak {
+        padding-bottom: 10px;
+    }
+
+    #regis {
+        padding-right: 5px;
+        outline: none;
+        border: none;
     }
 </style>
 <title>Form Login</title>
@@ -19,45 +34,50 @@
 
             <form method="post" action="@Url.Action("LoginData", "Dashboard")">
                 <div class="col-md-12">
-                    
+
                     <table>
-                          <tr>
-                              <td>@Html.LabelFor(a => a.username)</td>
-                              <td>@Html.TextBoxFor(a => a.username,new {required = "required", type = "email" })</td>
-                          </tr>
+                        <tr>
+                            <td>@Html.LabelFor(a => a.username, new { @class = "lbl" })</td>
+                            <td>@Html.TextBoxFor(a => a.username, new { required = "required", type = "email", @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td class="jarak"></td>
+                        </tr>
 
                         <tr>
                             <td>
-                                @Html.LabelFor(a => a.password)
+                                @Html.LabelFor(a => a.password, new { @class = "lbl" })
                             </td>
                             <td>
-                                @Html.PasswordFor(a => a.password, new { required = "required" })
+                                @Html.PasswordFor(a => a.password, new { required = "required", @class = "form-control" })
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="jarak"></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>
-                                <input type="submit" value="Login" />
+                                <input type="submit" value="Login" class="btn btn-default" />
+                                @Html.ActionLink("Register", "Register")
                             </td>
-                            <td></td>
                         </tr>
+
                     </table>
 
                     <!--<div class="form-group">
-          <label class="control-label">Username (email)</label>
-          <input name="username" type="email" class="form-control" required autocomplete="off" />
-      </div>
-      <div class="form-group">
-          <label class="control-label">Password</label>
-          <input name="password" type="password" class="form-control" required autocomplete="off" />
-      </div>
-      <div class="form-group">
-          <input type="submit" value="Login" class="btn btn-default" />
-      </div>-->
-
-                    <div>
-                        @Html.ActionLink("Kembali ke Awal", "Index")
+                        <label class="control-label">Username (email)</label>
+                        <input name="username" type="email" class="form-control" required autocomplete="off" />
                     </div>
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <input name="password" type="password" class="form-control" required autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>-->
+
+
 
                 </div>
             </form>

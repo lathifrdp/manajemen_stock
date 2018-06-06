@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ManajemenBarang.Models.GetProfil_Result>
+@{
+    ViewBag.Title = "Profil";
+}
+<style>
+    .table th {
+        text-align: center;
+    }
+
+    .table tr {
+        text-align: center;
+    }
+</style>
+<h2>Profil Supplier</h2>
+<div>
+    @Html.ActionLink("Kembali", "Index")
+</div>
+<table class="table table-bordered">
+    @foreach (var a in Model)
+    {
+
+        <tr>
+            <th>Nama</th>
+            <td>@Html.DisplayFor(b => a.nama_supplier)</td>
+        </tr>
+        <tr>
+            <th>Alamat</th>
+            <td>@Html.DisplayFor(b => a.alamat_supplier)</td>
+        </tr>
+        <tr>
+            <th>Telepon</th>
+            <td>@Html.DisplayFor(b => a.telp_supplier)</td>
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+
