@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ManajemenBarang.Areas.Admin.Models.spGetBarangMasukJoin_Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Data Barang Masuk</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-right">
+                    <form class="navbar-form navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                        <input type="button" value="Insert" class="btn btn-default" /><span class="caret"></span>
+                                    </button>
+                                    <!-- dropdown menu items-->
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="@Url.Action("InsertNew","BrgMasuk", new { Area = "Admin" })"><span class="glyphicon glyphicon-pencil"></span> New Data</a></li>
+                                        <li><a href="@Url.Action("InsertExist","BrgMasuk", new { Area = "Admin" })"><span class="glyphicon glyphicon-cog"></span> Existing Data</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Nama Barang
+                </th>
+                <th>
+                    Kode Barang
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th>
+                    Supplier
+                </th>
+                <th>
+                    Jumlah Barang
+                </th>
+                <th>
+                    Tanggal
+                </th>
+                <th>
+                    Keterangan
+                </th>
+                <th>
+                    Nama Operator
+                </th>
+                <th>ACTION</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_brg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kode_brg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_kat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_sup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jumlah_msk)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.tanggal_msk))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deskripsi_msk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_pj)
+                </td>
+
+                <td>
+                    @Html.ActionLink(
+                    "Delete",
+                    "Delete",                         // controller action
+                    "BrgMasuk",        // controller
+                    new { id = item.id_msk },         // action parameters aka route values
+                    new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+            }
+        </table>
+
+    </div>
+
