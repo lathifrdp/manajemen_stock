@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ManajemenBarang.Areas.Admin.Models.spGetSupplierWhere_Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Data Barang Keluar</h2>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th> Nama Supplier </th>
+                    <td> @item.nama_supplier </td>
+                </tr>
+                <tr>
+                    <th> Alamat </th>
+                    <td> @item.nama_supplier</td>
+                </tr>
+                <tr>
+                    <th> Alamat </th>
+                    <td> @item.telp_supplier</td>
+                </tr>
+
+
+            }
+        </table>
+
+    </div>
+

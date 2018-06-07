@@ -1,0 +1,83 @@
+﻿@model ManajemenBarang.Areas.Admin.Models.ListOptions
+@{
+    ViewBag.Title = "BarangKeluar";
+}
+
+<h2>Tambah Data Barang Return</h2>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="@Url.Action("InsertAction", "BrgReturn", new { Area = "Admin" })">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="control-label">Nama Barang</label>
+                    <select name="id_barang" class="form-control" required>
+                        <option selected="selected" value="0">Pilih Barang</option>
+                        @foreach (var itemB in Model.getBarang)
+                        {
+                            <option value="@itemB.id_barang">@itemB.nama_barang</option>
+                        }
+                    </select>
+                </div>
+                @*<div class="form-group">
+                    <label class="control-label">Supplier</label>
+                    <select name="id_sup" class="form-control" required>
+                        <option selected="selected" value="0">Pilih Supplier</option>
+                        @foreach (var itemB in Model.getSupplier)
+                        {
+                            <option value="@itemB.id_user">@itemB.nama_supplier</option>
+                        }
+                    </select>
+                </div>*@
+                <div class="form-group">
+                    <label class="control-label">Tanggal</label>
+                    <input name="tanggal_return" type="date" class="form-control" required autocomplete="off" />
+                    <span asp-validation-for="NRP" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Jumlah</label>
+                    <input name="jum_barang_return" class="form-control" required autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Deskripsi</label>
+                    <input name="deskripsi" class="form-control" required autocomplete="off" />
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nama Operator</label>
+                    <select name="created_by" class="form-control" required>
+                        <option selected="selected" value="0">Pilih Nama</option>
+                        @foreach (var itemU in Model.getUser)
+                        {
+                            <option value="@itemU.id_user">@itemU.username</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Insert" class="btn btn-success" />
+                    <input type="button" value="Back" class="btn btn-primary" onclick="location.href='@Url.Action("Index","Adminsite", new { Area = "Admin" })'" />
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+</script> 

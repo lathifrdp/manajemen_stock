@@ -1,0 +1,82 @@
+﻿@model ManajemenBarang.Areas.Admin.Models.ListOptions
+@{
+    ViewBag.Title = "Barang Masuk";
+}
+
+<h2>Tambah Data Barang Masuk</h2>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="@Url.Action("EditAction", "Adminsite", new { Area = "Admin" })">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-6">
+                @foreach (var item in Model.getEdit)
+                {
+                    <div class="form-group">
+                        <input name="id_brg" type="hidden" value="@item.id_brg" class="form-control" required autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Nama Barang</label>
+                        <input name="nama_brg" value="@item.nama_brg" class="form-control" required autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Kode Barang</label>
+                        <input name="kode_brg" value="@item.kode_brg" class="form-control" required autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Jumlah Barang</label>
+                        <input name="jumlah_brg" value="@item.jumlah_brg" class="form-control" required autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Deskripsi</label>
+                        <input name="deskripsi_brg" value="@item.deskripsi_brg" class="form-control" required autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Kategori</label>
+                        <select name="id_kat" class="form-control" required>
+                            <option disabled value="0">Pilih Kategori</option>
+                            @foreach (var itemK in Model.getKategori)
+                            {
+                                <option value="@itemK.id_kategori" @if (itemK.nama_kategori == item.nama_kat) { <text> selected="selected" </text> }>@itemK.nama_kategori</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Supplier</label>
+                        <select disabled name="id_sup" class="form-control" required>
+                            <option disabled value="0">Pilih Supplier</option>
+                            @foreach (var itemS in Model.getSupplier)
+                            {
+                                <option value="@itemS.id_user" @if (itemS.nama_supplier == item.nama_sup) { <text> selected="selected" </text> }>@itemS.nama_supplier</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Insert" class="btn btn-success" />
+                        <input type="button" value="Back" class="btn btn-primary" onclick="location.href='@Url.Action("Index","Adminsite", new { Area = "Admin" })'" />
+                    </div>
+                }
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+</script> 

@@ -1,11 +1,93 @@
-﻿
+﻿@model IEnumerable<ManajemenBarang.Areas.Admin.Models.spGetBarangJoin_Result>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index Admin</h2>
 <div>
-    @Html.RouteLink("Kembali ke Dashboard", "Default",
-    new { action = "Index", controller = "Dashboard" })
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Data Barang</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                
+                <div class="pull-left">
+                    @Html.RouteLink("Kembali ke Dashboard", "Default",
+        new { action = "Index", controller = "Dashboard" })
+                </div>
+            </div>
+        </div>
+        
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Nama Barang
+                </th>
+                <th>
+                    Kode Barang
+                </th>
+                <th>
+                    Jumlah Barang
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th>
+                    Supplier
+                </th>
+                <th>
+                    Deskripsi
+                </th>
+                <th class="text-center" colspan="2">ACTION</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nama_brg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.kode_brg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.jumlah_brg)
+                    </td>
+                   
+                    <td>   
+                        @Html.DisplayFor(modelItem => item.nama_kat)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nama_sup)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.deskripsi_brg)
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink(
+                        "Edit",
+                        "Edit",                         // controller action
+                        "Adminsite",        // controller
+                        new { id = item.id_brg },         // action parameters aka route values
+                        new { @class = "btn btn-info" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(
+                        "Delete",
+                        "Delete",                         // controller action
+                        "Adminsite",        // controller
+                        new { id = item.id_brg },         // action parameters aka route values
+                        new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+
+    </div>
 
