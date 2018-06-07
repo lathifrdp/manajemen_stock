@@ -11,18 +11,18 @@
             <div class="col-md-6">
 
                 <!--<div class="form-group">
-                    <label class="control-label">Kode Barang</label>
-                    @foreach (var itemB in Model.allBar)
-                    {
-                        <input name="kode_barang" class="form-control" required autocomplete="off" value="@Html.Display(itemB.kode_barang)" readonly />
-                    }
-                </div>-->
+                       <label class="control-label">Kode Barang</label>
+                       @*foreach (var itemB in Model.allBarang)
+                       {
+                           <input name="kode_barang" class="form-control" required autocomplete="off" value="@Html.Display(itemB.kode_barang)" readonly />
+                       }*@
+                   </div>-->
                 <div class="form-group">
                     <label class="control-label">Nama Barang</label>
-                    <select name="nama_barang" class="form-control" required>
+                    <select name="id_barang" class="form-control" required>
                         @*Iterating Barang ViewModel *@
                         <option selected="selected" value="">--- Pilih Barang ---</option>
-                        @foreach (var itemB in Model.allBar)
+                        @foreach (var itemB in Model.allNya)
                         {
                             <option value="@itemB.id_barang">@itemB.nama_barang</option>
                         }
@@ -31,17 +31,17 @@
 
                 <!--<div class="form-group">
 
-                    <label class="control-label">Kategori</label>
-                    <select name="id_kategori" class="form-control" required>
-                        @*Iterating Kategori ViewModel *@
-                        <option selected="selected" value="">--- Pilih Kategori ---</option>
-                        @foreach (var itemK in Model.allKategori)
-                        {
-                            <option value="@itemK.id_kategori">@itemK.nama_kategori</option>
-                        }
-                    </select>
+                      <label class="control-label">Kategori</label>
+                      <select name="id_kategori" class="form-control" required>
+                          @*Iterating Kategori ViewModel *@
+                          <option selected="selected" value="">--- Pilih Kategori ---</option>
+                          @*foreach (var itemK in Model.allKategori)
+                          {
+                              <option value="@itemK.id_kategori">@itemK.nama_kategori</option>
+                          }*@
+                      </select>
 
-                </div>-->
+                  </div>-->
 
                 <div class="form-group">
                     <label class="control-label">Jumlah Barang</label>

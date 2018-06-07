@@ -253,5 +253,70 @@ namespace ManajemenBarang.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProfil_Result>("GetProfil", id_supplierParameter);
         }
+    
+        public virtual int CreateDataExist(Nullable<int> id_barang, Nullable<System.DateTime> tanggal_masuk, Nullable<int> jumlah_barang, string deskripsi, Nullable<int> created_by, Nullable<int> id_supplier)
+        {
+            var id_barangParameter = id_barang.HasValue ?
+                new ObjectParameter("id_barang", id_barang) :
+                new ObjectParameter("id_barang", typeof(int));
+    
+            var tanggal_masukParameter = tanggal_masuk.HasValue ?
+                new ObjectParameter("tanggal_masuk", tanggal_masuk) :
+                new ObjectParameter("tanggal_masuk", typeof(System.DateTime));
+    
+            var jumlah_barangParameter = jumlah_barang.HasValue ?
+                new ObjectParameter("jumlah_barang", jumlah_barang) :
+                new ObjectParameter("jumlah_barang", typeof(int));
+    
+            var deskripsiParameter = deskripsi != null ?
+                new ObjectParameter("deskripsi", deskripsi) :
+                new ObjectParameter("deskripsi", typeof(string));
+    
+            var created_byParameter = created_by.HasValue ?
+                new ObjectParameter("created_by", created_by) :
+                new ObjectParameter("created_by", typeof(int));
+    
+            var id_supplierParameter = id_supplier.HasValue ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateDataExist", id_barangParameter, tanggal_masukParameter, jumlah_barangParameter, deskripsiParameter, created_byParameter, id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<GetBarang_Result> GetBarang()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBarang_Result>("GetBarang");
+        }
+    
+        public virtual ObjectResult<GetBarangWhereDist_Result> GetBarangWhereDist(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBarangWhereDist_Result>("GetBarangWhereDist", id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<GetBarangnya_Result> GetBarangnya(string id_supplier)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBarangnya_Result>("GetBarangnya", id_supplierParameter);
+        }
+    
+        public virtual ObjectResult<GetCreatedSupplier4_Result> GetCreatedSupplier4(string id_supplier, Nullable<int> id_user)
+        {
+            var id_supplierParameter = id_supplier != null ?
+                new ObjectParameter("id_supplier", id_supplier) :
+                new ObjectParameter("id_supplier", typeof(string));
+    
+            var id_userParameter = id_user.HasValue ?
+                new ObjectParameter("id_user", id_user) :
+                new ObjectParameter("id_user", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCreatedSupplier4_Result>("GetCreatedSupplier4", id_supplierParameter, id_userParameter);
+        }
     }
 }

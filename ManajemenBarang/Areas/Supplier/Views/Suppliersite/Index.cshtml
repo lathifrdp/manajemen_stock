@@ -5,11 +5,11 @@
 
 <h2>Supplier</h2>
 <!-- <p style="margin-left:20px;float:right;margin-right:20px;">
-    @Html.RouteLink("Logout", "Default", new { action = "Login", controller = "Dashboard" })
+    @*Html.RouteLink("Logout", "Default", new { action = "Login", controller = "Dashboard" })*@
 </p> -->
-<p style="margin-left:20px;float:right;margin-right:20px;">
-    @Html.ActionLink("Logout", "Logout")
-</p>
+<!--<p style="margin-left:20px;float:right;margin-right:20px;">
+    @*Html.ActionLink("Logout", "Logout")*@
+</p>-->
 @if (Session["SupID"] != null)
 {<text> Selamat Datang @Session["SupName"].ToString() </text>}
 <!--<p>
@@ -43,7 +43,10 @@
                 Kategori
             </th>
             <th>
-                Jumlah Barang
+                Total Barang
+            </th>
+            <th>
+                Jumlah Barang Masuk
             </th>
             <th>
                 Tanggal Masuk
@@ -59,15 +62,24 @@
 
         @foreach (var itemB in Model.allBar)
         {
+            //var c = 0; var cek = itemB.id_barang;
+            //int cek = itemB.id_barang, i = 0, c = 0, d=0;
+            //int[] cekAr = new int[50];
+            //cekAr[i] = cek;
+            //if (cekAr[i] == cekAr[i]) { c++; }
+            //i++;            
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => itemB.nama_barang)
+                    @Html.DisplayFor(modelItem => itemB.nama_barang)                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => itemB.nama_kategori)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => itemB.jumlah_barang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => itemB.jum_barang_masuk)
                 </td>
                 <td>
                     @Convert.ToString(string.Format("{0:dd/MM/yyyy}", itemB.tanggal_masuk))
@@ -77,12 +89,19 @@
                 <td>
                     @foreach (var itemS in Model.allSup)
                     {
-                        @Html.DisplayFor(modelItem => itemS.nama_supplier)
+                        @Html.DisplayFor(a => itemS.nama_supplier)
                     }
                 </td>
 
             </tr>
+
+            //if (cekAr[i] != cekAr[i-1]){<text> <tr style="border:groove;"></tr> </text>}
+            //Write(c);
+            //Write(i);
+            //Write(d);
         }
+
+
     </tbody>
 </table>
 

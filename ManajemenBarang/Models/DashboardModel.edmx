@@ -107,6 +107,18 @@
           <Parameter Name="deskripsi" Type="varchar" Mode="In" />
           <Parameter Name="updated_by" Type="int" Mode="In" />
         </Function>
+        <Function Name="CreateDataExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_barang" Type="int" Mode="In" />
+          <Parameter Name="tanggal_masuk" Type="date" Mode="In" />
+          <Parameter Name="jumlah_barang" Type="int" Mode="In" />
+          <Parameter Name="deskripsi" Type="varchar" Mode="In" />
+          <Parameter Name="created_by" Type="int" Mode="In" />
+          <Parameter Name="id_supplier" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetBarang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetBarangnya" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetBarangSup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_supplier" Type="int" Mode="In" />
         </Function>
@@ -122,12 +134,19 @@
         <Function Name="GetBarangWhere3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_supplier" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetBarangWhereDist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetCreatedSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetCreatedSupplier2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_supplier" Type="varchar" Mode="In" />
         </Function>
         <Function Name="GetCreatedSupplier3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetCreatedSupplier4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
         </Function>
         <Function Name="GetKategori" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetProfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -294,7 +313,26 @@
           <Parameter Name="id_supplier" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetProfil" ReturnType="Collection(dbStokModel.GetProfil_Result)">
+          <Parameter Name="id_supplier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateDataExist">
+            <Parameter Name="id_barang" Mode="In" Type="Int32" />
+            <Parameter Name="tanggal_masuk" Mode="In" Type="DateTime" />
+            <Parameter Name="jumlah_barang" Mode="In" Type="Int32" />
+            <Parameter Name="deskripsi" Mode="In" Type="String" />
+            <Parameter Name="created_by" Mode="In" Type="Int32" />
+            <Parameter Name="id_supplier" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetBarang" ReturnType="Collection(dbStokModel.GetBarang_Result)" />
+          <FunctionImport Name="GetBarangWhereDist" ReturnType="Collection(dbStokModel.GetBarangWhereDist_Result)">
+          <Parameter Name="id_supplier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetBarangnya" ReturnType="Collection(dbStokModel.GetBarangnya_Result)">
+          <Parameter Name="id_supplier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetCreatedSupplier4" ReturnType="Collection(dbStokModel.GetCreatedSupplier4_Result)">
             <Parameter Name="id_supplier" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetUsup_Result">
@@ -548,6 +586,54 @@
           <Property Type="String" Name="nama_supplier" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="alamat_supplier" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="telp_supplier" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetBarang_Result">
+          <Property Type="Int32" Name="id_barang" Nullable="false" />
+          <Property Type="Int32" Name="id_supplier" Nullable="true" />
+          <Property Type="Int32" Name="id_kategori" Nullable="false" />
+          <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetBarangWhereDist_Result">
+          <Property Type="Int32" Name="id_barang" Nullable="false" />
+          <Property Type="Int32" Name="id_kategori" Nullable="false" />
+          <Property Type="Int32" Name="id_supplier" Nullable="true" />
+          <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+          <Property Type="Int32" Name="kategori_id" Nullable="true" />
+          <Property Type="String" Name="nama_kategori" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="deskripsi" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="id_barang_masuk" Nullable="true" />
+          <Property Type="DateTime" Name="tanggal_masuk" Nullable="true" />
+          <Property Type="Int32" Name="jum_barang_masuk" Nullable="true" />
+          <Property Type="Int32" Name="created_masuk" Nullable="true" />
+          <Property Type="Int32" Name="updated_masuk" Nullable="true" />
+          <Property Type="Int32" Name="id_barang_keluar" Nullable="true" />
+          <Property Type="DateTime" Name="tanggal_keluar" Nullable="true" />
+          <Property Type="Int32" Name="jum_barang_keluar" Nullable="true" />
+          <Property Type="Int32" Name="created_keluar" Nullable="true" />
+          <Property Type="Int32" Name="updated_keluar" Nullable="true" />
+          <Property Type="Int32" Name="id_barang_return" Nullable="true" />
+          <Property Type="DateTime" Name="tanggal_return" Nullable="true" />
+          <Property Type="Int32" Name="jum_barang_return" Nullable="true" />
+          <Property Type="Int32" Name="created_return" Nullable="true" />
+          <Property Type="Int32" Name="updated_return" Nullable="true" />
+          <Property Type="String" Name="nama_supplier" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="supplier_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetBarangnya_Result">
+          <Property Type="Int32" Name="id_barang" Nullable="false" />
+          <Property Type="Int32" Name="id_kategori" Nullable="false" />
+          <Property Type="String" Name="nama_barang" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="kode_barang" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_supplier" Nullable="true" />
+          <Property Type="Int32" Name="jumlah_barang" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetCreatedSupplier4_Result">
+          <Property Type="String" Name="nama_supplier" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_supplier" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -946,6 +1032,71 @@
                 <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
                 <ScalarProperty Name="alamat_supplier" ColumnName="alamat_supplier" />
                 <ScalarProperty Name="telp_supplier" ColumnName="telp_supplier" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CreateDataExist" FunctionName="dbStokModel.Store.CreateDataExist" />
+          <FunctionImportMapping FunctionImportName="GetBarang" FunctionName="dbStokModel.Store.GetBarang">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbStokModel.GetBarang_Result">
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+                <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+                <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+                <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBarangWhereDist" FunctionName="dbStokModel.Store.GetBarangWhereDist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbStokModel.GetBarangWhereDist_Result">
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+                <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+                <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+                <ScalarProperty Name="id_barang_masuk" ColumnName="id_barang_masuk" />
+                <ScalarProperty Name="tanggal_masuk" ColumnName="tanggal_masuk" />
+                <ScalarProperty Name="jum_barang_masuk" ColumnName="jum_barang_masuk" />
+                <ScalarProperty Name="created_masuk" ColumnName="created_masuk" />
+                <ScalarProperty Name="updated_masuk" ColumnName="updated_masuk" />
+                <ScalarProperty Name="id_barang_keluar" ColumnName="id_barang_keluar" />
+                <ScalarProperty Name="tanggal_keluar" ColumnName="tanggal_keluar" />
+                <ScalarProperty Name="jum_barang_keluar" ColumnName="jum_barang_keluar" />
+                <ScalarProperty Name="created_keluar" ColumnName="created_keluar" />
+                <ScalarProperty Name="updated_keluar" ColumnName="updated_keluar" />
+                <ScalarProperty Name="id_barang_return" ColumnName="id_barang_return" />
+                <ScalarProperty Name="tanggal_return" ColumnName="tanggal_return" />
+                <ScalarProperty Name="jum_barang_return" ColumnName="jum_barang_return" />
+                <ScalarProperty Name="created_return" ColumnName="created_return" />
+                <ScalarProperty Name="updated_return" ColumnName="updated_return" />
+                <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBarangnya" FunctionName="dbStokModel.Store.GetBarangnya">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbStokModel.GetBarangnya_Result">
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="id_kategori" ColumnName="id_kategori" />
+                <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+                <ScalarProperty Name="kode_barang" ColumnName="kode_barang" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+                <ScalarProperty Name="jumlah_barang" ColumnName="jumlah_barang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCreatedSupplier4" FunctionName="dbStokModel.Store.GetCreatedSupplier4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbStokModel.GetCreatedSupplier4_Result">
+                <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+                <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

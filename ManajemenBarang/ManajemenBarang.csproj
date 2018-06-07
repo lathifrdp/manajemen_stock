@@ -198,6 +198,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DashboardModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetBarangnya_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetBarangSup2_Result.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
@@ -216,10 +219,19 @@
     <Compile Include="Models\GetBarangWhere3_Result.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetBarangWhereDist_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetBarangWhere_Result.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetBarang_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetCreatedSupplier3_Result.cs">
+      <DependentUpon>DashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCreatedSupplier4_Result.cs">
       <DependentUpon>DashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetKategori_Result.cs">
@@ -296,6 +308,8 @@
     <Content Include="Areas\Supplier\Views\Suppliersite\InsertData.cshtml" />
     <Content Include="Areas\Supplier\Views\Suppliersite\Profil.cshtml" />
     <Content Include="Areas\Supplier\Views\Suppliersite\CreateExist.cshtml" />
+    <Content Include="Areas\Supplier\Views\Suppliersite\InsertDataExist.cshtml" />
+    <Content Include="Areas\Supplier\Views\Suppliersite\ErrorSession.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

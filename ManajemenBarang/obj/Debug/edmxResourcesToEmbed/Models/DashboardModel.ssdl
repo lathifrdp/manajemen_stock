@@ -102,6 +102,18 @@
     <Parameter Name="deskripsi" Type="varchar" Mode="In" />
     <Parameter Name="updated_by" Type="int" Mode="In" />
   </Function>
+  <Function Name="CreateDataExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_barang" Type="int" Mode="In" />
+    <Parameter Name="tanggal_masuk" Type="date" Mode="In" />
+    <Parameter Name="jumlah_barang" Type="int" Mode="In" />
+    <Parameter Name="deskripsi" Type="varchar" Mode="In" />
+    <Parameter Name="created_by" Type="int" Mode="In" />
+    <Parameter Name="id_supplier" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBarang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetBarangnya" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="GetBarangSup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_supplier" Type="int" Mode="In" />
   </Function>
@@ -117,12 +129,19 @@
   <Function Name="GetBarangWhere3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_supplier" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="GetBarangWhereDist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="GetCreatedSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetCreatedSupplier2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_supplier" Type="varchar" Mode="In" />
   </Function>
   <Function Name="GetCreatedSupplier3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreatedSupplier4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_supplier" Type="varchar" Mode="In" />
+    <Parameter Name="id_user" Type="int" Mode="In" />
   </Function>
   <Function Name="GetKategori" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetProfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
