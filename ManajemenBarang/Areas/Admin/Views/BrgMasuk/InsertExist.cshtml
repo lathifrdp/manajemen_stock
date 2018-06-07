@@ -13,7 +13,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Nama Barang</label>
-                    <select name="id_barang" class="form-control" required>
+                    <select name="id_brg" class="form-control" required>
                         <option selected="selected" value="0">Pilih Barang</option>
                         @foreach (var itemB in Model.getBarang)
                         {
@@ -23,25 +23,24 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Tanggal</label>
-                    <input name="tanggal_masuk" type="date" class="form-control" required autocomplete="off" />
+                    <input name="tanggal_msk" type="date" class="form-control" required autocomplete="off" />
                     
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Jumlah</label>
-                    <input name="jum_barang_masuk" class="form-control" required autocomplete="off" />
+                    <input name="jumlah_brg" class="form-control" required autocomplete="off" />
                     
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Deskripsi</label>
-                    <input name="deskripsi" class="form-control" required autocomplete="off" />
-                    
+                    <input name="deskripsi_brg" class="form-control" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Nama Operator</label>
-                    <select name="created_by" class="form-control" required>
+                    <select name="id_pj" class="form-control" required>
                         <option selected="selected" value="0">Pilih Nama</option>
                         @foreach (var itemU in Model.getUser)
                         {
