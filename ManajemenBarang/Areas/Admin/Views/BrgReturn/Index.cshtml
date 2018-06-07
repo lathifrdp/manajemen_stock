@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ManajemenBarang.Areas.Admin.Models.spGetBarangReturnJoin_Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Data Barang Keluar</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-right">
+                    <input type="button" value="Insert" class="btn btn-primary" onclick="location.href='@Url.Action("Insert", "BrgReturn", new { Area = "Admin" })'" />
+                </div>
+
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Nama Barang
+                </th>
+                <th>
+                    Kode Barang
+                </th>
+                <th>
+                    Jumlah Barang
+                </th>
+                <th>
+                    Tanggal
+                </th>
+                <th>
+                    Keterangan
+                </th>
+                <th>
+                    Supplier
+                </th>
+                <th>
+                    Operator
+                </th>
+                <th>ACTION</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_brg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_ret)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jumlah_ret)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.tanggal_ret))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deskripsi_ret)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_sup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama_pj)
+                </td>
+
+                <td>
+                    @Html.ActionLink(
+                    "Delete",
+                    "Delete",                         // controller action
+                    "BrgReturn",        // controller
+                    new { id = item.id_ret },         // action parameters aka route values
+                    new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+            }
+        </table>
+
+    </div>
+
